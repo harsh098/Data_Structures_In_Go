@@ -20,7 +20,7 @@ func (h* MaxHeap) maxHeapifyUp(index int){
 	}
 }
 
-func (h* MaxHeap) MaxHeapify(){
+func (h* MaxHeap) MaxHeapifyUsingTraditionalBuildHeap(){
 	for i:=1 ; i<len(h.array) ; i++{
 		h.maxHeapifyUp(i)
 	}
@@ -46,11 +46,11 @@ func (h* MaxHeap) Extract() int{
 	l := len(h.array)-1
 	h.array[l], h.array[0] = h.array[0], h.array[l]
 	h.array = h.array[:l]
-	h.maxHeapifyDown(0)
+	h.MaxHeapify(0)
 	return extracted
 } 
 
-func (h *MaxHeap) maxHeapifyDown(index int){
+func (h *MaxHeap) MaxHeapify(index int){
 	l,r := h.left(index), h.right(index)
 	largest := index
 	if l<len(h.array) && h.array[l] > h.array[index] {
@@ -61,7 +61,7 @@ func (h *MaxHeap) maxHeapifyDown(index int){
 	}
 	if largest != index {
 		h.array[largest], h.array[index] = h.array[index], h.array[largest]
-		h.maxHeapifyDown(largest)
+		h.MaxHeapify(largest)
 	}
 }
 
@@ -76,7 +76,7 @@ func (h* MaxHeap) right(index int) int{
 
 func main()  {
 	m := &MaxHeap{[]int{10,20,30,15}}
-	m.MaxHeapify()
+	m.MaxHeapifyUsingTraditionalBuildHeap()
 	fmt.Println(m)
 	for len(m.array) > 0 {
 		x := m.Extract()
