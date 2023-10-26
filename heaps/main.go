@@ -83,5 +83,7 @@ func main()  {
 		fmt.Println(m, ",", x)
 	}
 	fmt.Println(m)
-	
+	array := []int{12, 60, 1, 2}
+	HeapSort(&array)
+	fmt.Println(array)
 }
