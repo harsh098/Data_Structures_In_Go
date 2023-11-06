@@ -52,6 +52,7 @@ func (l *LinkedList) AppendNode(n *Node) {
 func (l *LinkedList) Add(value int) {
 	node := NewNode(value)
 	l.AppendNode(node)
+	l.length++
 }
 
 func (l *LinkedList) Remove(value int) {
@@ -61,6 +62,7 @@ func (l *LinkedList) Remove(value int) {
 
 	if l.head.Value() == value {
 		l.head = l.head.Next()
+		l.length--
 		return
 	}
 
@@ -73,6 +75,8 @@ func (l *LinkedList) Remove(value int) {
 	if curr.Next() != nil {
 		curr.next = curr.Next().Next()
 	}
+
+	l.length--
 }
 
 func main() {
@@ -81,6 +85,8 @@ func main() {
 	list.Add(2)
 	list.Add(3)
 	list.Add(4)
+	list.Add(5)
+	fmt.Println("Middle of Linked List:", list.MiddleOfLinkedList())
 	printList(list)
 	list.Remove(3)
 	printList(list)
