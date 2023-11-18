@@ -21,4 +21,4 @@ func (l* LinkedList) ReverseWithAStack(){
 		j--
 	}
 	curr.next = nil
-}	
+}

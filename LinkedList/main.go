@@ -88,6 +88,8 @@ func main() {
 	list.Add(5)
 	fmt.Println("Middle of Linked List:", list.MiddleOfLinkedList())
 	printList(list)
+	list.ReverseWithAStack()
+	printList(list)
 	list.Remove(3)
 	printList(list)
 	list.Remove(1)
