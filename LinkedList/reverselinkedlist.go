@@ -22,3 +22,23 @@ func (l* LinkedList) ReverseWithAStack(){
 	}
 	curr.next = nil
 }
+
+func (l* LinkedList) ReverseWithPointers(){
+	if l.length < 2{
+		return
+	}
+
+	var prev *Node = nil
+	var curr *Node = l.head
+	var next *Node = curr.next
+
+	for curr!=nil{
+		next = curr.next
+		curr.next = prev
+		prev = curr
+		curr = next
+	}
+
+	l.head = prev
+
+}

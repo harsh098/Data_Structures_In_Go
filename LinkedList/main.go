@@ -90,6 +90,8 @@ func main() {
 	printList(list)
 	list.ReverseWithAStack()
 	printList(list)
+	list.ReverseWithPointers()
+	printList(list)
 	list.Remove(3)
 	printList(list)
 	list.Remove(1)
