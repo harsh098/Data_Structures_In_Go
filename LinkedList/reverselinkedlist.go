@@ -42,3 +42,20 @@ func (l* LinkedList) ReverseWithPointers(){
 	l.head = prev
 
 }
+
+func (l* LinkedList) reverseRecursiveUtil(head *Node) *Node {
+	if head==nil || head.next==nil{
+		return head 
+	}
+	new_head := l.reverseRecursiveUtil(head.next)
+	head.next.next = head
+	head.next = nil
+	return new_head
+}
+
+func (l* LinkedList) ReverseRecursive(){
+	if l.length < 2{
+		return
+	}
+	l.head=l.reverseRecursiveUtil(l.head)
+}

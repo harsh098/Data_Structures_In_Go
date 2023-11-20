@@ -92,6 +92,8 @@ func main() {
 	printList(list)
 	list.ReverseWithPointers()
 	printList(list)
+	list.ReverseRecursive()
+	printList(list)
 	list.Remove(3)
 	printList(list)
 	list.Remove(1)
